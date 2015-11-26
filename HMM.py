@@ -77,13 +77,11 @@ for i in tagList:
 	dic[i] = ProbS
 	countStart = 0
 dicP = {"<S>": dic} #store prior table 
-
 #calculate the End prior
 dicE = {} #temporarry dic 
 #calculate the prior (End|state) = C(state, End)/C(state) 
 for i in tagList:
 	for j  in range(len(tagEndList)):
-		
 		for f in tagFullList:
 			if j == 0:
 				if i == f:
@@ -93,9 +91,7 @@ for i in tagList:
 	#print ("tag: " + i +" is in end of sentence for $ of times: " + str(countEnd))
 	#print ("tag: " + i +" is in the corpus: " + str(countTag))
 	ProbE = format(countEnd/(countTag*1.0), '.5f')
-
 	dicE.update({i: {"END":ProbE}})
-
 	countEnd = 0
 	countTag = 0
 
@@ -106,7 +102,6 @@ dicT = {} #temporary dic
 for e in range (len(tagList)):
 	for f in range(len(tagList)):
 		for n in range(len(tagFullList)):
-
 			if f == 0:
 				if tagList[e] == tagFullList[n]:
 					countTag = countTag + 1 
@@ -114,16 +109,12 @@ for e in range (len(tagList)):
 				if tagList[e] == tagFullList[n]:
 					if tagList[f] == tagFullList[n + 1]:
 						countJoint = countJoint + 1
-	
 		prior = format(countJoint/float(countTag), '.5f')
 		dicT[tagList[f]] = prior 
-
 		countJoint = 0 
 	countTag = 0
-
 	dicT["END"] = dicE[tagList[e]]["END"]
 	dicP.update({tagList[e]: dicT})
-
 	countJoint = 0
 	dicT = {}
 
@@ -159,10 +150,8 @@ for i in wordtag:
 		outputFile1.write (str(k) + " ")
 		outputFile1.write ( str(wordtag[i][k]) + '\n')
 
-
 outputFile1.close()
 inputFile.close()
-
 ##################################################################HMM 
 def HMM(wordList):
 
@@ -175,7 +164,6 @@ def HMM(wordList):
 	#intialization
 	for q in range (qRange):
 		#score transition 0 -> q given w1
-		
 		if w1 in corpus:
 				if w1 in wordtag[tagList[q]]:
 					viterbi[q][1] = float(dicP['<S>'][tagList[q]]) * float(wordtag[tagList[q]][w1])
@@ -190,7 +178,6 @@ def HMM(wordList):
 		
 
 		backpointer[q][1] = 0 #stand for q0 (start point)
-
 	#for word w from 2 to T
 	maxViterbi = 0
 	maxPreviousState = 0 
