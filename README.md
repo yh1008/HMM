@@ -1,7 +1,10 @@
 #### HMM
 Hidden Markov model
+
 Author: Emily Hua
+
 this is an implementation of using HMM to generate POS tags
+
 algorithms see http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf
 ---------------------
 #####The program will produce: 
@@ -12,8 +15,8 @@ algorithms see http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.p
 ---------------------
 
 #####How to run the program: 
-//1. notice the training.pos and development.text has to be in the same directory as this program
-//2. took 30 mins on department's server/14 mins on a machine with 8G RAM
+&nbsp;&nbsp;&nbsp;&nbsp;1. notice the training.pos and development.text has to be in the same directory as this program
+&nbsp;&nbsp;&nbsp;&nbsp;2. took 30 mins on department's server/14 mins on a machine with 8G RAM
 ---------------------
 
 	$ python HMM.py 
