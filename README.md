@@ -3,7 +3,7 @@ Hidden Markov model
 
 this is an implementation of using HMM to generate POS tags
 
-algorithms see http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf page12
+algorithm see http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf page12
 
 #####The program will produce: 
 1. a txt file called "prior.txt" that contains the prior table content; 
